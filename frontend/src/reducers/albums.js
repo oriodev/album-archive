@@ -7,9 +7,12 @@ export const albumsSlice = createSlice({
     set: (state, action) => {
       state.value = action.payload;
     },
+    add: (state, action) => {
+      state.value.push(action.payload);
+    },
   },
 });
 
-export const { set } = albumsSlice.actions;
+export const { set, add } = albumsSlice.actions;
 
 export default albumsSlice.reducer;

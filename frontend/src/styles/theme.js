@@ -15,8 +15,9 @@ const theme = createTheme({
       nav: '#33658A',
     },
     text: {
-      primary: '#ffffff',
+      primary: '#000000',
       secondary: '#33658A',
+      white: '#ffffff',
     },
     error: {
       main: '#BE8A60',

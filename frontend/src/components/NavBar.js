@@ -6,7 +6,7 @@ import { Container, Stack, Button } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SortIcon from '@mui/icons-material/Sort';
 
-const NavBar = () => {
+const NavBar = ({ formOpen, setFormOpen }) => {
   return (
     <Container
       sx={{
@@ -21,12 +21,13 @@ const NavBar = () => {
         alignItems="center"
         spacing={3}
       >
-        <h1>album archive</h1>
+        <h1 color="white">album archive</h1>
         <Stack direction="row" spacing={3}>
           <Button
             startIcon={<AddCircleIcon />}
             variant="contained"
             size="small"
+            onClick={() => setFormOpen(!formOpen)}
           >
             Add Album
           </Button>

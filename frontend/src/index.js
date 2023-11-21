@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 // redux
+import thunk from 'redux-thunk';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import albumsReducer from './reducers/albums';
@@ -21,6 +22,7 @@ const store = configureStore({
   reducer: {
     albums: albumsReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(

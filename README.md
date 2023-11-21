@@ -10,10 +10,9 @@ a small react app that lets the user track albums they've listened to and rate t
 
 current functionality:
 
-- [] albums stored in database.
-- [] user can add albums.
-- [] user can view all of the albums.
-- [] user can view one album at a time as a pop up.
+- [x] albums stored in database.
+- [x] user can add albums.
+- [x] user can view all of the albums.
 - [] user can sort albums by ranking from high-to-low and low-to-high.
 
 working on:
