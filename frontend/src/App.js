@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { set } from './reducers/albums';
+import { useEffect } from 'react';
+
+const App = () => {
+  const albums = useSelector((state) => state.albums.value);
+
+  const dispatch = useDispatch();
+
+  // set the album list
+
+  useEffect(() => {
+    dispatch(set([]));
+  }, [dispatch]);
+
+  console.log(albums);
+
+  return <div>hi</div>;
+};
 
 export default App;
