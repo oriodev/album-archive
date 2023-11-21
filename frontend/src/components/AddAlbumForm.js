@@ -13,7 +13,7 @@ import {
 
 import { add, set } from '../reducers/albums';
 import { useDispatch } from 'react-redux';
-import { getAlbums } from '../utils/httpRequests';
+import { getAlbums, postAlbum } from '../utils/httpRequests';
 
 const AddAlbumForm = ({ formOpen, setFormOpen }) => {
   const [albumTitle, setAlbumTitle] = useState('');
@@ -48,19 +48,11 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
 
     try {
       const body = newAlbum;
-
-      const response = await fetch('http://localhost:5000/albums', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
+      postAlbum(body);
+      dispatch(add({ ...body, album_id: 99999 }));
     } catch (err) {
       console.log(err.message);
     }
-
-    getAlbums().then((albums) => {
-      dispatch(set(albums));
-    });
   };
 
   const handleSubmit = (e) => {

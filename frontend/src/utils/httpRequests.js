@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:5000/albums';
 
-export const getAlbums = async (dispatch) => {
+export const getAlbums = async () => {
   try {
     const response = await fetch(baseUrl);
     const jsonData = await response.json();
@@ -10,3 +10,10 @@ export const getAlbums = async (dispatch) => {
     console.error(err.message);
   }
 };
+
+export const postAlbum = async (body) =>
+  await fetch('http://localhost:5000/albums', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
