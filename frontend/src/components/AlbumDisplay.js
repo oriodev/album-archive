@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Grid, Paper, Typography } from '@mui/material';
+import { ratingInStars } from '../utils/displayUtils';
 
 const AlbumDisplay = ({ albums }) => {
   return (
@@ -23,6 +24,9 @@ const AlbumDisplay = ({ albums }) => {
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
                   {album.album_artist}
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {ratingInStars(album.album_rating)}
                 </Typography>
               </Paper>
             </Grid>

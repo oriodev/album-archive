@@ -1,6 +1,6 @@
 # album archive
 
-a small react app that lets the user track albums they've listened to and rate them.
+album archive gives music lovers a place to track the albums they listen to and give them a rating! built using react.js, redux, node.js, express, postgresql, and material-ui.
 
 ![image](https://github.com/oriodev/album-archive/assets/93719767/d0b6d2fe-ab6f-4990-98b1-c7e6fa2001fb)
 
@@ -13,15 +13,15 @@ current functionality:
 - [x] albums stored in database.
 - [x] user can add albums.
 - [x] user can view all of the albums.
-- [] user can sort albums by ranking from high-to-low and low-to-high.
+- [x] user can sort albums by ranking from high-to-low and low-to-high.
+- [x] switch to redux for better state management.
+- [x] switch to styling with material-ui.
 
 working on:
 
 - [ ] a notification system using snackbars.
 - [ ] user can edit an album.
 - [ ] user can delete an album.
-- [x] switch to redux for better state management.
-- [x] switch to styling with material-ui.
 
 future functionality:
 
@@ -35,6 +35,8 @@ future functionality:
 
 proposed functionality:
 
+- [ ] dropdown box with sorting options - eg. by artist, alphabetically
+- [ ] user's saving option saved to database
 - [ ] an integration with the spotify api.
 - [ ] users can view each other's profile pages.
 - [ ] users can view each other's albums.

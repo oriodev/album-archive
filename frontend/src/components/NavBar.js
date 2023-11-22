@@ -1,4 +1,7 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setSort } from '../reducers/sorting';
 
 import { Container, Stack, Button, Typography } from '@mui/material';
 
@@ -7,6 +10,18 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SortIcon from '@mui/icons-material/Sort';
 
 const NavBar = ({ formOpen, setFormOpen }) => {
+  const sortStyle = useSelector((state) => state.sorting.value);
+
+  const dispatch = useDispatch();
+
+  const sortHandler = () => {
+    if (sortStyle === 'highToLow') {
+      dispatch(setSort('lowToHigh'));
+    } else if (sortStyle === 'lowToHigh') {
+      dispatch(setSort('highToLow'));
+    }
+  };
+
   return (
     <Container
       sx={{
@@ -31,7 +46,12 @@ const NavBar = ({ formOpen, setFormOpen }) => {
           >
             Add Album
           </Button>
-          <Button startIcon={<SortIcon />} variant="contained" size="small">
+          <Button
+            startIcon={<SortIcon />}
+            variant="contained"
+            size="small"
+            onClick={sortHandler}
+          >
             Sort Albums
           </Button>
         </Stack>

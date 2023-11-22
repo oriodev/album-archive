@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import albumsReducer from './reducers/albums';
+import sortingReducer from './reducers/sorting';
 
 import App from './App';
 
@@ -21,6 +22,7 @@ import theme from './styles/theme';
 const store = configureStore({
   reducer: {
     albums: albumsReducer,
+    sorting: sortingReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });

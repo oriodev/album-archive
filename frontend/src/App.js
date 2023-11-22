@@ -13,19 +13,23 @@ import AlbumDisplay from './components/AlbumDisplay';
 import { getAlbums } from './utils/httpRequests';
 import AddAlbumForm from './components/AddAlbumForm';
 import { Box } from '@mui/material';
+import { sortedAlbumsList } from './utils/displayUtils';
 
 const App = () => {
   const [formOpen, setFormOpen] = useState(false);
 
   const albums = useSelector((state) => state.albums.value);
+  const sortStyle = useSelector((state) => state.sorting.value);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     getAlbums().then((albums) => {
-      dispatch(set(albums));
+      const sortedAlbum = sortedAlbumsList(sortStyle, albums);
+
+      dispatch(set(sortedAlbum));
     });
-  }, [dispatch]);
+  }, [dispatch, sortStyle]);
 
   return (
     <Box
