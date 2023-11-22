@@ -2,9 +2,10 @@
 
 album archive gives music lovers a place to track the albums they listen to and give them a rating! built using react.js, redux, node.js, express, postgresql, and material-ui.
 
-![image](https://github.com/oriodev/album-archive/assets/93719767/d0b6d2fe-ab6f-4990-98b1-c7e6fa2001fb)
+![image](https://github.com/oriodev/album-archive/assets/93719767/76fcabf3-24d1-43e4-bf8c-88ab203127b3)
 
-![image](https://github.com/oriodev/album-archive/assets/93719767/90690638-0e25-4de4-ba31-e12e5fce9f57)
+![image](https://github.com/oriodev/album-archive/assets/93719767/94449812-5a9b-42b2-a5b7-071239cd45f5)
+
 
 **functionality:**
 
@@ -43,4 +44,5 @@ proposed functionality:
 
 **use case diagram**
 
-![image](https://github.com/oriodev/album-archive/assets/93719767/588b1961-33a9-4035-821e-d4d5e15d9933)
+![image](https://github.com/oriodev/album-archive/assets/93719767/72bfa03f-a031-46a7-98dc-3fe8201b31e6)
+
