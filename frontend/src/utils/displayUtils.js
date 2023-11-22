@@ -2,7 +2,15 @@
 
 export const ratingInStars = (album_rating) => {
   const albumRating = parseInt(album_rating);
-  return Array(albumRating).fill('⭐').join('');
+
+  try {
+    return Array(albumRating).fill('⭐').join('');
+  } catch (error) {
+    console.log(error.message);
+    console.log(
+      'this usually gets triggered bc u didnt put something in props'
+    );
+  }
 };
 
 // -------
