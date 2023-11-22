@@ -12,10 +12,7 @@ import AlbumDisplay from './components/AlbumDisplay';
 // utils
 import { getAlbums } from './utils/httpRequests';
 import AddAlbumForm from './components/AddAlbumForm';
-
-// for next time:
-// make title text white
-// limit how many albums can show on a row at once
+import { Box } from '@mui/material';
 
 const App = () => {
   const [formOpen, setFormOpen] = useState(false);
@@ -31,11 +28,17 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
       <NavBar setFormOpen={setFormOpen} formOpen={formOpen} />
       <AddAlbumForm setFormOpen={setFormOpen} formOpen={formOpen} />
       <AlbumDisplay albums={albums} />
-    </div>
+    </Box>
   );
 };
 

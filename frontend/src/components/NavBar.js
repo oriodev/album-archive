@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Stack, Button } from '@mui/material';
+import { Container, Stack, Button, Typography } from '@mui/material';
 
 // icons
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -21,7 +21,7 @@ const NavBar = ({ formOpen, setFormOpen }) => {
         alignItems="center"
         spacing={3}
       >
-        <h1 color="white">album archive</h1>
+        <h1>Album Archive</h1>
         <Stack direction="row" spacing={3}>
           <Button
             startIcon={<AddCircleIcon />}
