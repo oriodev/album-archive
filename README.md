@@ -6,6 +6,10 @@ album archive gives music lovers a place to track the albums they listen to and 
 
 ![image](https://github.com/oriodev/album-archive/assets/93719767/94449812-5a9b-42b2-a5b7-071239cd45f5)
 
+![image](https://github.com/oriodev/album-archive/assets/93719767/7fee62ea-8a5d-4e8b-ba0e-4b3bd8ad06c6)
+
+![image](https://github.com/oriodev/album-archive/assets/93719767/6e756209-f1bf-4597-aa28-e1a7720b6273)
+
 **functionality:**
 
 current functionality:
@@ -16,15 +20,17 @@ current functionality:
 - [x] user can sort albums by ranking from high-to-low and low-to-high.
 - [x] user can delete an album.
 - [x] user can edit an album.
+- [x] a notification system using snackbars.
 
 working on:
 
-- [ ] a notification system using snackbars.
+- [ ] 'are you sure' alert before delete.
+
 
 bug fixes:
 
 - [ ] albums don't auto sort when added.
-- [ ] 'are you sure' alert before delete.
+
 
 future functionality:
 
