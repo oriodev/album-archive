@@ -23,7 +23,7 @@ working on:
 
 bug fixes:
 
-- [ ] albums don't auto sort when added
+- [ ] albums don't auto sort when added.
 - [ ] 'are you sure' alert before delete.
 
 future functionality:

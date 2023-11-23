@@ -11,8 +11,8 @@ import {
 } from '@mui/material';
 
 import { add, set } from '../reducers/albums';
-import { useDispatch } from 'react-redux';
-import { getAlbums, postAlbum } from '../utils/httpRequests';
+import { useDispatch, useSelector } from 'react-redux';
+import { postAlbum } from '../utils/httpRequests';
 
 const AddAlbumForm = ({ formOpen, setFormOpen }) => {
   const [albumTitle, setAlbumTitle] = useState('');
@@ -20,6 +20,7 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
   const [albumCoverUrl, setAlbumCoverUrl] = useState('');
   const [rating, setRating] = useState(0);
 
+  const albums = useSelector((state) => state.albums.value);
   const dispatch = useDispatch();
 
   const onClose = () => {
@@ -45,12 +46,12 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
       album_rating: rating,
     };
 
-    console.log(rating);
-
     try {
       const body = newAlbum;
       const albumResponse = await postAlbum(body);
       dispatch(add(albumResponse));
+
+      // refresh the page
     } catch (err) {
       console.log(err.message);
     }

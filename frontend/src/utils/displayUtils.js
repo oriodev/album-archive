@@ -17,11 +17,15 @@ export const ratingInStars = (album_rating) => {
 // SORTING
 // -------
 
-export const sortedHighToLow = (albumList) =>
-  albumList.sort((a, b) => b.album_rating - a.album_rating);
+export const sortedHighToLow = (albumList) => {
+  console.log(albumList);
+  return albumList.sort((a, b) => b.album_rating - a.album_rating);
+};
 
-export const sortedLowToHigh = (albumList) =>
-  albumList.sort((a, b) => a.album_rating - b.album_rating);
+export const sortedLowToHigh = (albumList) => {
+  console.log(albumList);
+  return albumList.sort((a, b) => a.album_rating - b.album_rating);
+};
 
 export const sortHandler = (sortDirection, setSortDirection) => {
   if (sortDirection === 'highToLow') {

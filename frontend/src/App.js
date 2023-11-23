@@ -8,10 +8,11 @@ import { useEffect, useState } from 'react';
 // components
 import NavBar from './components/NavBar';
 import AlbumDisplay from './components/AlbumDisplay';
+import Notification from './components/Notification';
+import AddAlbumForm from './components/AddAlbumForm';
 
 // utils
 import { getAlbums } from './utils/httpRequests';
-import AddAlbumForm from './components/AddAlbumForm';
 import { Box } from '@mui/material';
 import { sortedAlbumsList } from './utils/displayUtils';
 
@@ -43,6 +44,7 @@ const App = () => {
         justifyContent: 'center',
       }}
     >
+      <Notification />
       <NavBar setFormOpen={setFormOpen} formOpen={formOpen} />
       <AddAlbumForm setFormOpen={setFormOpen} formOpen={formOpen} />
       <AlbumDisplay albums={albums} />
