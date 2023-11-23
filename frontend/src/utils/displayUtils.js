@@ -7,7 +7,7 @@ export const ratingInStars = (album_rating) => {
     return Array(albumRating).fill('⭐').join('');
   } catch (error) {
     console.log(error.message);
-    console.log(
+    console.debug(
       'this usually gets triggered bc u didnt put something in props'
     );
   }

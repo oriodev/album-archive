@@ -10,9 +10,14 @@ export const albumsSlice = createSlice({
     add: (state, action) => {
       state.value.push(action.payload);
     },
+    del: (state, action) => {
+      state.value = state.value.filter(
+        (album) => album.album_id !== action.payload
+      );
+    },
   },
 });
 
-export const { set, add } = albumsSlice.actions;
+export const { set, add, del } = albumsSlice.actions;
 
 export default albumsSlice.reducer;

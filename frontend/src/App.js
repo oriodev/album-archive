@@ -24,11 +24,15 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getAlbums().then((albums) => {
-      const sortedAlbum = sortedAlbumsList(sortStyle, albums);
-
-      dispatch(set(sortedAlbum));
-    });
+    getAlbums()
+      .then((albums) => {
+        const sortedAlbum = sortedAlbumsList(sortStyle, albums);
+        dispatch(set(sortedAlbum));
+      })
+      .catch((error) => {
+        console.error('server is not running');
+        dispatch(set([]));
+      });
   }, [dispatch, sortStyle]);
 
   return (

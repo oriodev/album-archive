@@ -36,7 +36,7 @@ const NavBar = ({ formOpen, setFormOpen }) => {
         alignItems="center"
         spacing={3}
       >
-        <h1>Album Archive</h1>
+        <h1 sx={{ color: 'secondary' }}>Album Archive</h1>
         <Stack direction="row" spacing={3}>
           <Button
             startIcon={<AddCircleIcon />}

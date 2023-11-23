@@ -6,7 +6,6 @@ album archive gives music lovers a place to track the albums they listen to and 
 
 ![image](https://github.com/oriodev/album-archive/assets/93719767/94449812-5a9b-42b2-a5b7-071239cd45f5)
 
-
 **functionality:**
 
 current functionality:
@@ -17,12 +16,17 @@ current functionality:
 - [x] user can sort albums by ranking from high-to-low and low-to-high.
 - [x] switch to redux for better state management.
 - [x] switch to styling with material-ui.
+- [x] user can delete an album.
 
 working on:
 
 - [ ] a notification system using snackbars.
 - [ ] user can edit an album.
-- [ ] user can delete an album.
+
+bug fixes:
+
+- [ ] text colour in form input
+- [ ] albums don't auto sort when added
 
 future functionality:
 
@@ -45,4 +49,3 @@ proposed functionality:
 **use case diagram**
 
 ![image](https://github.com/oriodev/album-archive/assets/93719767/72bfa03f-a031-46a7-98dc-3fe8201b31e6)
-
