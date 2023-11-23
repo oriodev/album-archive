@@ -25,7 +25,6 @@ working on:
 
 bug fixes:
 
-- [ ] text colour in form input
 - [ ] albums don't auto sort when added
 
 future functionality:

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Button,
   Modal,
@@ -10,45 +10,39 @@ import {
   Container,
 } from '@mui/material';
 
-import { add, set } from '../reducers/albums';
-import { useDispatch } from 'react-redux';
-import { getAlbums, postAlbum } from '../utils/httpRequests';
-
-const AddAlbumForm = ({ formOpen, setFormOpen }) => {
-  const [albumTitle, setAlbumTitle] = useState('');
-  const [albumArtist, setAlbumArtist] = useState('');
-  const [albumCoverUrl, setAlbumCoverUrl] = useState('');
-  const [rating, setRating] = useState(0);
-
-  const dispatch = useDispatch();
-
-  const onClose = () => {
-    // Reset form fields
-    setAlbumTitle('');
-    setAlbumArtist('');
-    setAlbumCoverUrl('');
-    setRating(0);
-
-    setFormOpen(false);
+const EditAlbumForm = ({
+  editFormOpen,
+  setEditFormOpen,
+  editFormAlbum,
+  setEditFormAlbum,
+}) => {
+  const defaultAlbum = {
+    album_title: '',
+    album_artist: '',
+    album_cover: '',
+    album_rating: 0,
   };
 
-  const onSubmit = async ({
-    albumTitle,
-    albumArtist,
-    albumCoverUrl,
-    rating,
-  }) => {
-    const newAlbum = {
-      album_title: albumTitle,
-      album_artist: albumArtist,
-      album_cover: albumCoverUrl,
-      album_rating: rating,
-    };
+  const [album, setAlbum] = useState(defaultAlbum);
 
+  useEffect(() => {
+    if (editFormAlbum) {
+      setAlbum(editFormAlbum);
+    } else {
+      setAlbum(defaultAlbum);
+    }
+  }, [editFormAlbum]);
+
+  const onClose = () => {
+    setAlbum(defaultAlbum);
+    setEditFormOpen(false);
+    setEditFormAlbum(null);
+  };
+
+  const onSubmit = async (editedAlbum) => {
     try {
-      const body = newAlbum;
-      const albumResponse = await postAlbum(body);
-      dispatch(add(albumResponse));
+      console.log(editedAlbum);
+      // Perform any other actions with the edited album data
     } catch (err) {
       console.log(err.message);
     }
@@ -60,13 +54,10 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
     // Form validation or other logic can be added here
 
     // Call the onSubmit prop with the form data
-    onSubmit({ albumTitle, albumArtist, albumCoverUrl, rating });
+    onSubmit(album);
 
     // Reset form fields
-    setAlbumTitle('');
-    setAlbumArtist('');
-    setAlbumCoverUrl('');
-    setRating(0);
+    setAlbum(defaultAlbum);
 
     // Close the modal
     onClose();
@@ -74,28 +65,30 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
 
   return (
     <Modal
-      open={formOpen}
+      open={editFormOpen}
       onClose={onClose}
       closeAfterTransition
       sx={{ display: 'flex', alignItems: 'center', height: '100vh' }}
     >
-      <Fade in={formOpen}>
+      <Fade in={editFormOpen}>
         <Container
           maxWidth="sm"
           sx={{ backgroundColor: 'white', p: 3, borderRadius: 4 }}
         >
           <Box mt={4}>
             <Typography variant="h5" gutterBottom sx={{ color: 'black' }}>
-              Add Album
+              Edit Album
             </Typography>
             <form onSubmit={handleSubmit}>
               <TextField
                 fullWidth
-                label="Album Title"
+                label={'Album Title'}
                 variant="outlined"
                 margin="normal"
-                value={albumTitle}
-                onChange={(e) => setAlbumTitle(e.target.value)}
+                value={album.album_title}
+                onChange={(e) =>
+                  setAlbum({ ...album, album_title: e.target.value })
+                }
                 required
                 InputProps={{
                   style: { color: 'black' },
@@ -106,8 +99,10 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
                 label="Album Artist"
                 variant="outlined"
                 margin="normal"
-                value={albumArtist}
-                onChange={(e) => setAlbumArtist(e.target.value)}
+                value={album.album_artist}
+                onChange={(e) =>
+                  setAlbum({ ...album, album_artist: e.target.value })
+                }
                 required
                 InputProps={{
                   style: { color: 'black' },
@@ -118,8 +113,10 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
                 label="Album Cover URL"
                 variant="outlined"
                 margin="normal"
-                value={albumCoverUrl}
-                onChange={(e) => setAlbumCoverUrl(e.target.value)}
+                value={album.album_cover}
+                onChange={(e) =>
+                  setAlbum({ ...album, album_cover: e.target.value })
+                }
                 required
                 InputProps={{
                   style: { color: 'black' },
@@ -131,13 +128,15 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
                 </Typography>
                 <Rating
                   name="rating"
-                  value={rating}
+                  value={parseInt(album.album_rating)}
                   precision={1}
-                  onChange={(event, newValue) => setRating(newValue)}
+                  onChange={(event, newValue) =>
+                    setAlbum({ ...album, album_rating: newValue })
+                  }
                 />
               </Box>
               <Button type="submit" variant="contained" color="primary">
-                Add Album
+                Edit Album
               </Button>
             </form>
           </Box>
@@ -147,4 +146,4 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
   );
 };
 
-export default AddAlbumForm;
+export default EditAlbumForm;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Album from './Album';
 
@@ -7,8 +7,12 @@ import { del } from '../reducers/albums';
 
 import { Box, Button, Grid, Paper } from '@mui/material';
 import { deleteAlbum } from '../utils/httpRequests';
+import EditAlbumForm from './EditAlbumForm';
 
 const AlbumDisplay = ({ albums }) => {
+  const [editFormOpen, setEditFormOpen] = useState(false);
+  const [editFormAlbum, setEditFormAlbum] = useState(null);
+
   const dispatch = useDispatch();
 
   // handles pressing the delete button
@@ -23,10 +27,20 @@ const AlbumDisplay = ({ albums }) => {
     }
   };
 
-  const editHandler = () => {};
+  const editHandler = (album) => {
+    setEditFormOpen(!editFormOpen);
+    setEditFormAlbum(album);
+  };
 
   return (
     <Box p={2} width="100%" display="flex" justifyContent="center">
+      <EditAlbumForm
+        editFormOpen={editFormOpen}
+        setEditFormOpen={setEditFormOpen}
+        editFormAlbum={editFormAlbum}
+        setEditFormAlbum={setEditFormAlbum}
+      />
+
       <Box width="70%">
         <Grid container spacing={2} justifyContent="center">
           {albums.map((album) => (
@@ -38,7 +52,7 @@ const AlbumDisplay = ({ albums }) => {
                 <Button
                   variant="contained"
                   size="small"
-                  onClick={editHandler}
+                  onClick={() => editHandler(album)}
                   sx={{ m: 1 }}
                 >
                   Edit
