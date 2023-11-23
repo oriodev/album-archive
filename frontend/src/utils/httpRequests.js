@@ -11,9 +11,23 @@ export const getAlbums = async () => {
   }
 };
 
-export const postAlbum = async (body) =>
-  await fetch('http://localhost:5000/albums', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
+export const postAlbum = async (body) => {
+  try {
+    const response = await fetch('http://localhost:5000/albums', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+
+    const jsonData = await response.json();
+    return jsonData;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const deleteAlbum = async (id) => {
+  await fetch(`http://localhost:5000/albums/${id}`, {
+    method: 'DELETE',
   });
+};

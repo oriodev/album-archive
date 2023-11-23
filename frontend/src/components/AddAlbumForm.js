@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Button,
   Modal,
-  Backdrop,
   Fade,
   TextField,
   Rating,
@@ -48,8 +47,8 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
 
     try {
       const body = newAlbum;
-      postAlbum(body);
-      dispatch(add({ ...body, album_id: 99999 }));
+      const albumResponse = await postAlbum(body);
+      dispatch(add(albumResponse));
     } catch (err) {
       console.log(err.message);
     }
