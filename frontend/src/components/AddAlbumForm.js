@@ -13,6 +13,7 @@ import {
 import { add, set } from '../reducers/albums';
 import { useDispatch, useSelector } from 'react-redux';
 import { postAlbum } from '../utils/httpRequests';
+import { setMessage, setOn } from '../reducers/notifications';
 
 const AddAlbumForm = ({ formOpen, setFormOpen }) => {
   const [albumTitle, setAlbumTitle] = useState('');
@@ -51,7 +52,9 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
       const albumResponse = await postAlbum(body);
       dispatch(add(albumResponse));
 
-      // refresh the page
+      // notification
+      dispatch(setOn(true));
+      dispatch(setMessage('album added'));
     } catch (err) {
       console.log(err.message);
     }

@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import albumsReducer from './reducers/albums';
 import sortingReducer from './reducers/sorting';
+import notificationReducer from './reducers/notifications';
 
 import App from './App';
 
@@ -26,6 +27,7 @@ const store = configureStore({
   reducer: {
     albums: albumsReducer,
     sorting: sortingReducer,
+    notifications: notificationReducer,
   },
   middleware: middleware,
   logger,

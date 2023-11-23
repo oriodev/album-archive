@@ -1,15 +1,21 @@
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Snackbar from '@mui/material/Snackbar';
+import { setMessage, setOn } from '../reducers/notifications';
 
-export default function Notification({ message = '' }) {
-  const [open, setOpen] = useState(true);
+export default function Notification() {
+  const on = useSelector((state) => state.notifications.value.on);
+
+  const message = useSelector((state) => state.notifications.value.message);
+
+  const dispatch = useDispatch();
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
 
-    setOpen(false);
+    dispatch(setOn(false));
+    dispatch(setMessage(null));
   };
 
   // you can have an 'action' like undo
@@ -17,7 +23,7 @@ export default function Notification({ message = '' }) {
   return (
     <div>
       <Snackbar
-        open={open}
+        open={on}
         autoHideDuration={4000}
         onClose={handleClose}
         message={message}

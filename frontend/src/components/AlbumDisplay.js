@@ -8,6 +8,7 @@ import { del } from '../reducers/albums';
 import { Box, Button, Grid, Paper } from '@mui/material';
 import { deleteAlbum } from '../utils/httpRequests';
 import EditAlbumForm from './EditAlbumForm';
+import { setMessage, setOn } from '../reducers/notifications';
 
 const AlbumDisplay = ({ albums }) => {
   const [editFormOpen, setEditFormOpen] = useState(false);
@@ -22,6 +23,10 @@ const AlbumDisplay = ({ albums }) => {
       deleteAlbum(id);
       // updates the state
       dispatch(del(id));
+
+      // notification
+      dispatch(setOn(true));
+      dispatch(setMessage('album deleted'));
     } catch (error) {
       console.log(error.message);
     }

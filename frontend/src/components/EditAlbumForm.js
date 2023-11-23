@@ -12,6 +12,7 @@ import {
 import { editAlbum } from '../utils/httpRequests';
 import { useDispatch } from 'react-redux';
 import { add, edit } from '../reducers/albums';
+import { setMessage, setOn } from '../reducers/notifications';
 
 const EditAlbumForm = ({
   editFormOpen,
@@ -53,6 +54,10 @@ const EditAlbumForm = ({
 
       await editAlbum(body.album_id, body);
       dispatch(edit(body));
+
+      // notification
+      dispatch(setOn(true));
+      dispatch(setMessage('album edited'));
     } catch (err) {
       console.log(err.message);
     }
