@@ -9,6 +9,9 @@ import {
   Typography,
   Container,
 } from '@mui/material';
+import { editAlbum } from '../utils/httpRequests';
+import { useDispatch } from 'react-redux';
+import { add, edit } from '../reducers/albums';
 
 const EditAlbumForm = ({
   editFormOpen,
@@ -20,10 +23,12 @@ const EditAlbumForm = ({
     album_title: '',
     album_artist: '',
     album_cover: '',
-    album_rating: 0,
+    album_rating: 1,
   };
 
   const [album, setAlbum] = useState(defaultAlbum);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (editFormAlbum) {
@@ -41,8 +46,13 @@ const EditAlbumForm = ({
 
   const onSubmit = async (editedAlbum) => {
     try {
-      console.log(editedAlbum);
-      // Perform any other actions with the edited album data
+      const body = {
+        ...editedAlbum,
+        album_rating: String(editedAlbum.album_rating || 1),
+      };
+
+      await editAlbum(body.album_id, body);
+      dispatch(edit(body));
     } catch (err) {
       console.log(err.message);
     }
@@ -50,16 +60,11 @@ const EditAlbumForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Form validation or other logic can be added here
-
-    // Call the onSubmit prop with the form data
     onSubmit(album);
 
-    // Reset form fields
+    //reset form fields
     setAlbum(defaultAlbum);
 
-    // Close the modal
     onClose();
   };
 

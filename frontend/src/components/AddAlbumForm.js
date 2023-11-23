@@ -45,6 +45,8 @@ const AddAlbumForm = ({ formOpen, setFormOpen }) => {
       album_rating: rating,
     };
 
+    console.log(rating);
+
     try {
       const body = newAlbum;
       const albumResponse = await postAlbum(body);

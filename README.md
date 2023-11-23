@@ -14,18 +14,17 @@ current functionality:
 - [x] user can add albums.
 - [x] user can view all of the albums.
 - [x] user can sort albums by ranking from high-to-low and low-to-high.
-- [x] switch to redux for better state management.
-- [x] switch to styling with material-ui.
 - [x] user can delete an album.
+- [x] user can edit an album.
 
 working on:
 
 - [ ] a notification system using snackbars.
-- [ ] user can edit an album.
 
 bug fixes:
 
 - [ ] albums don't auto sort when added
+- [ ] 'are you sure' alert before delete.
 
 future functionality:
 

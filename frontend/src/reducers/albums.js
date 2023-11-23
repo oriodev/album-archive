@@ -15,9 +15,18 @@ export const albumsSlice = createSlice({
         (album) => album.album_id !== action.payload
       );
     },
+    edit: (state, action) => {
+      state.value = state.value.map((album) => {
+        if (album.album_id === action.payload.album_id) {
+          return action.payload;
+        } else {
+          return album;
+        }
+      });
+    },
   },
 });
 
-export const { set, add, del } = albumsSlice.actions;
+export const { set, add, del, edit } = albumsSlice.actions;
 
 export default albumsSlice.reducer;
