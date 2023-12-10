@@ -26,11 +26,9 @@ working on:
 
 - [ ] 'are you sure' alert before delete.
 
-
 bug fixes:
 
 - [ ] albums don't auto sort when added.
-
 
 future functionality:
 
