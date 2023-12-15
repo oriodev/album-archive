@@ -9,6 +9,7 @@ importers:
       '@babel/plugin-transform-react-jsx': ^7.14.9
       '@nrwl/workspace': ^17.2.5
       nodemon: ^3.0.2
+      nx: v17.2.5
       plugin-transform-react-jsx@^7.14.9: link:babel/plugin-transform-react-jsx@^7.14.9
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -19,6 +20,7 @@ importers:
       '@babel/plugin-transform-react-jsx': 7.23.4_@babel+core@7.23.6
       '@nrwl/workspace': 17.2.5
       nodemon: 3.0.2
+      nx: 17.2.5
       plugin-transform-react-jsx@^7.14.9: link:babel/plugin-transform-react-jsx@^7.14.9
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0

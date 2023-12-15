@@ -29,6 +29,7 @@ working on:
 bug fixes:
 
 - [ ] albums don't auto sort when added.
+- [ ] create album w/o rating: throws 'album is undefined' error
 
 future functionality:
 
