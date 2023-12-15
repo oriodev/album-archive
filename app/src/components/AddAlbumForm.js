@@ -10,7 +10,7 @@ import {
   Container,
 } from '@mui/material';
 
-import { add, set } from '../reducers/albums';
+import { add } from '../reducers/albums';
 import { useDispatch, useSelector } from 'react-redux';
 import { postAlbum } from '../utils/httpRequests';
 import { setMessage, setOn } from '../reducers/notifications';

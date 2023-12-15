@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { editAlbum } from '../utils/httpRequests';
 import { useDispatch } from 'react-redux';
-import { add, edit } from '../reducers/albums';
+import { edit } from '../reducers/albums';
 import { setMessage, setOn } from '../reducers/notifications';
 
 const EditAlbumForm = ({

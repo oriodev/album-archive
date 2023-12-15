@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setSort } from '../reducers/sorting';
 
-import { Container, Stack, Button, Typography } from '@mui/material';
+import { Container, Stack, Button } from '@mui/material';
 
 // icons
 import AddCircleIcon from '@mui/icons-material/AddCircle';

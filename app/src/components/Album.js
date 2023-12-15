@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ratingInStars } from '../utils/displayUtils';
-import { Grid, Paper, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 const Album = ({ album }) => {
   return (
