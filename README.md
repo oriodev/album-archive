@@ -48,6 +48,10 @@ proposed functionality:
 - [ ] users can view each other's profile pages.
 - [ ] users can view each other's albums.
 
+config:
+
+- [x] migrated from npm to pnpm.
+
 **use case diagram**
 
 ![image](https://github.com/oriodev/album-archive/assets/93719767/72bfa03f-a031-46a7-98dc-3fe8201b31e6)
