@@ -1,6 +1,6 @@
 # album archive
 
-album archive gives music lovers a place to track the albums they listen to and give them a rating! built using react.js, redux, node.js, express, postgresql, and material-ui.
+album archive gives music lovers a place to track the albums they listen to and give them a rating! built using next.js, postgresql, and shadcn.
 
 ![image](https://github.com/oriodev/album-archive/assets/93719767/76fcabf3-24d1-43e4-bf8c-88ab203127b3)
 
@@ -26,11 +26,9 @@ working on:
 
 - [ ] 'are you sure' alert before delete.
 
-
 bug fixes:
 
 - [ ] albums don't auto sort when added.
-
 
 future functionality:
 
